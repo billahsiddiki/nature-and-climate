@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import docx; doc = docx.Document\\('/Users/billahsiddiki/Documents/🚨CURRENT/Nature & Climate/Dr. Payam Akhavan/PA Rev. Dr. Payam Akhavan_Interview Draft - Nature & Climate Magazine.docx'\\); print\\('\\\\n'.join\\([p.text for p in doc.paragraphs]\\)\\)\")",
+      "Bash(textutil -stdout -convert txt '/Users/billahsiddiki/Documents/🚨CURRENT/Nature & Climate/Dr. Payam Akhavan/PA Rev. Dr. Payam Akhavan_Interview Draft - Nature & Climate Magazine.docx')",
+      "Bash(textutil -stdout -convert txt '/Users/billahsiddiki/Documents/🚨CURRENT/Nature & Climate/Ms. Farzana Faruk Jhumu/Ms. Farzana Faruk_Interview Draft - Nature & Climate Magazine.docx')",
+      "Bash(textutil -stdout -convert txt '/Users/billahsiddiki/Documents/🚨CURRENT/Nature & Climate/Ms. Shaheen Anam/Ms. Shaheen Anam_Interview Draft - Nature Climate Magazine.docx')",
+      "Bash(textutil -stdout -convert txt '/Users/billahsiddiki/Documents/🚨CURRENT/Nature & Climate/Mr. Sohanur Rahman/Mr. Sohanur Rahman_Interview Draft - Nature & Climate Magazine\\(1\\).docx')",
+      "Bash(textutil -stdout -convert txt '/Users/billahsiddiki/Documents/🚨CURRENT/Nature & Climate/Ms. Dilruba Haider/Ms. Dilruba Haider_Interview Draft - Nature Climate Magazine.docx')",
+      "Bash(textutil -stdout -convert txt '/Users/billahsiddiki/Documents/🚨CURRENT/Nature & Climate/Mohammad Mahmudullah Riyad/Mohammad Mahmudullah Riyad_Interview Draft - Nature & Climate Magazine.docx')",
+      "Bash(textutil -stdout -convert txt '/Users/billahsiddiki/Documents/🚨CURRENT/Nature & Climate/Articles/Global Climate Crisis_Myisha_20250922.docx')",
+      "Bash(git config:*)",
+      "Bash(gh auth:*)",
+      "WebFetch(domain:theprestige.global)",
+      "Bash(git --version)",
+      "Read(//Users/billahsiddiki/**)",
+      "Read(//usr/local/bin/**)",
+      "Bash(ls ~/.ssh/id_*)",
+      "Bash(npm list:*)",
+      "Bash(brew list:*)",
+      "Read(//opt/homebrew/**)",
+      "Bash(brew --prefix)",
+      "Bash(curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg)",
+      "Bash(curl -s \"https://theprestige.global/dev/\")",
+      "Bash(curl -sL https://github.com/cli/cli/releases/download/v2.67.0/gh_2.67.0_macOS_arm64.zip -o /tmp/gh.zip)",
+      "Bash(unzip -q /tmp/gh.zip -d /tmp/gh_cli)",
+      "Bash(sudo cp:*)",
+      "Bash(gh --version)",
+      "Bash(~/bin/gh auth:*)",
+      "Bash(~/bin/gh repo:*)"
+    ]
+  }
+}

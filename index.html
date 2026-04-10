@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature &amp; Climate — The Magazine</title>
+<meta name="description" content="Nature & Climate is a premium editorial magazine covering climate diplomacy, science, policy and justice.">
+
+<!-- Fonts: exact match to theprestige.global -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700%7CLora:400,400i,600,600i%7CLato:400,700%7COpen+Sans:400,600&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ─────────────────────────────────────────────── */
+:root {
+  /* Editorial palette — premium, restrained */
+  --black:       #0d0c0a;
+  --charcoal:    #1a1814;
+  --dark:        #2c2820;
+  --mid:         #5a5248;
+  --muted:       #8c857c;
+  --rule:        #ddd8cc;
+  --warm-grey:   #ede8df;
+  --cream:       #f8f4ec;
+  --off-white:   #faf7f1;
+  --white:       #fefcf8;
+
+  /* Gold — the signature accent of this magazine */
+  --gold:        #b8892a;
+  --gold-mid:    #c9a03e;
+  --gold-light:  #d4aa50;
+  --gold-pale:   #f3e4bc;
+
+  /* Leaf — the ONE green. Used only in the logo mark. */
+  --leaf:        #1e3d28;
+
+  /* Fonts — theprestige.global stack */
+  --display:   'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  --body:      'Lora', Georgia, 'Times New Roman', serif;
+  --ui:        'Lato', system-ui, sans-serif;
+  --sans:      'Open Sans', system-ui, sans-serif;
+
+  --max-w: 1300px;
+}
+
+/* ── RESET ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--off-white);
+  color: var(--charcoal);
+  font-family: var(--body);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ── SCROLL REVEAL ──────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ══════════════════════════════════════════════════════════
+   TICKER BAR
+══════════════════════════════════════════════════════════ */
+.ticker {
+  background: var(--charcoal);
+  padding: 0.55rem 2rem;
+  overflow: hidden;
+  position: relative;
+}
+.ticker-track {
+  display: flex;
+  gap: 5rem;
+  white-space: nowrap;
+  animation: ticker 35s linear infinite;
+}
+.ticker-item {
+  font-family: var(--ui);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  flex-shrink: 0;
+}
+.ticker-item span { color: var(--gold-light); }
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MASTHEAD
+══════════════════════════════════════════════════════════ */
+.masthead {
+  background: var(--white);
+  padding: 2.5rem 2rem 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.masthead-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.masthead-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  gap: 2rem;
+}
+.masthead-brand {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.masthead-leaf {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+.masthead-wordmark {}
+.masthead-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 4.2rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--black);
+  line-height: 1;
+  display: block;
+}
+.masthead-tagline {
+  font-family: var(--body);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-top: 0.35rem;
+  display: block;
+}
+.masthead-meta {
+  text-align: right;
+  padding-top: 0.25rem;
+}
+.masthead-issue-label {
+  font-family: var(--ui);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.masthead-issue-num {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  color: var(--charcoal);
+  line-height: 1;
+  display: block;
+}
+.masthead-issue-date {
+  font-family: var(--ui);
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-top: 0.2rem;
+}
+.masthead-rule {
+  height: 3px;
+  background: linear-gradient(to right, var(--charcoal) 0%, var(--charcoal) 60%, var(--gold) 60%, var(--gold) 100%);
+  margin-bottom: 0;
+}
+
+/* ── NAVIGATION ────────────────────────────────────────── */
+#nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  transition: box-shadow 0.3s ease;
+}
+#nav.scrolled {
+  box-shadow: 0 2px 20px rgba(0,0,0,0.09);
+}
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.nav-logo {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.nav-links a:hover { color: var(--black); border-color: var(--gold); }
+.nav-cta {
+  font-family: var(--ui);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--charcoal);
+  padding: 0.5rem 1.2rem;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--gold); }
+
+/* ══════════════════════════════════════════════════════════
+   HERO — COVER STORY
+══════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  height: 92vh;
+  min-height: 600px;
+  max-height: 1050px;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  opacity: 0.55;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(26,24,20,0.93) 0%,
+    rgba(26,24,20,0.75) 42%,
+    rgba(26,24,20,0.18) 100%
+  );
+}
+.hero-overlay-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to top, rgba(26,24,20,0.98) 0%, transparent 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 6rem;
+}
+.hero-dept {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.hero-dept-rule { width: 32px; height: 1px; background: var(--gold); }
+.hero-dept-label {
+  font-family: var(--ui);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.hero-title {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
+  line-height: 1.1;
+  color: var(--white);
+  max-width: 720px;
+  margin-bottom: 1.25rem;
+}
+.hero-title em { font-style: italic; }
+.hero-deck {
+  font-family: var(--body);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.68);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 2.25rem;
+}
+.hero-foot {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+}
+.hero-byline {
+  font-family: var(--ui);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.hero-byline strong { color: rgba(255,255,255,0.85); font-weight: 700; }
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  background: var(--gold);
+  padding: 0.9rem 1.8rem;
+  border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-gold svg { width: 13px; height: 13px; flex-shrink: 0; }
+.hero-scroll {
+  position: absolute;
+  bottom: 1.75rem; right: 2.5rem;
+  z-index: 3;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  animation: bob 2.8s ease-in-out infinite;
+}
+.hero-scroll span {
+  font-family: var(--ui); font-size: 0.55rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  writing-mode: vertical-rl;
+}
+.hero-scroll svg { width: 14px; height: 14px; color: rgba(255,255,255,0.25); }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+
+/* ══════════════════════════════════════════════════════════
+   SECTION CHROME
+══════════════════════════════════════════════════════════ */
+.section-kicker {
+  display: inline-flex; align-items: center; gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+.kicker-rule { width: 26px; height: 2px; background: var(--gold); }
+.kicker-label {
+  font-family: var(--ui);
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gold);
+}
+.section-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  line-height: 1.15; letter-spacing: 0.02em;
+  color: var(--charcoal);
+}
+.section-sub {
+  margin-top: 0.6rem;
+  font-family: var(--body);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 540px;
+}
+.section-header { margin-bottom: 2.5rem; }
+
+/* ══════════════════════════════════════════════════════════
+   CURRENT ISSUE GRID
+══════════════════════════════════════════════════════════ */
+.current-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+.issue-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1px;
+  background: var(--rule);
+}
+.card {
+  background: var(--off-white);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.card:hover { background: var(--white); }
+.card--lead { grid-row: 1/3; }
+
+.card__img {
+  overflow: hidden; position: relative;
+}
+.card--lead .card__img { height: 420px; }
+.card--side .card__img  { height: 210px; }
+.card__img img { transition: transform 0.6s ease; }
+.card:hover .card__img img { transform: scale(1.04); }
+.card__img-tint {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,24,20,0.5) 0%, transparent 55%);
+}
+.card__body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
+.card--lead .card__body { padding: 2rem; }
+.card__dept {
+  font-family: var(--ui);
+  font-size: 0.57rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+.card__title {
+  font-family: var(--body);
+  font-weight: 600; line-height: 1.25;
+  color: var(--charcoal); margin-bottom: 0.7rem;
+}
+.card--lead .card__title { font-size: clamp(1.3rem, 2vw, 1.9rem); }
+.card--side .card__title { font-size: 1.05rem; }
+.card__excerpt {
+  font-family: var(--body);
+  font-size: 0.9rem;
+  color: var(--mid);
+  line-height: 1.7; flex: 1; margin-bottom: 1.25rem;
+}
+.card--lead .card__excerpt { font-size: 0.97rem; }
+.card__foot {
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid var(--rule); padding-top: 0.9rem; margin-top: auto;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.card__byline {
+  font-family: var(--ui);
+  font-size: 0.62rem; font-weight: 700;
+  color: var(--muted); letter-spacing: 0.04em;
+}
+.card__byline strong { color: var(--charcoal); }
+.btn-inline {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-family: var(--display);
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--charcoal);
+  border-bottom: 1px solid var(--charcoal);
+  padding-bottom: 1px;
+  background: none; border-left: none; border-right: none; border-top: none;
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+}
+.btn-inline:hover { color: var(--gold); border-color: var(--gold); }
+.btn-inline svg { width: 11px; height: 11px; }
+
+/* ══════════════════════════════════════════════════════════
+   DARK FEATURE BAND
+══════════════════════════════════════════════════════════ */
+.dark-band {
+  background: var(--charcoal);
+  padding: 5rem 2rem;
+  position: relative; overflow: hidden;
+}
+.dark-band::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 40%, transparent 100%);
+}
+.dark-band-inner { max-width: var(--max-w); margin: 0 auto; }
+.dark-band .section-title { color: var(--white); }
+.dark-band .section-sub { color: rgba(255,255,255,0.45); }
+
+.int-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.07);
+  margin-top: 2.5rem;
+}
+.int-card {
+  background: rgba(255,255,255,0.03);
+  padding: 2rem 1.75rem;
+  cursor: pointer;
+  display: flex; flex-direction: column;
+  transition: background 0.25s;
+  border-top: 2px solid transparent;
+  transition: background .25s, border-color .25s;
+}
+.int-card:hover { background: rgba(255,255,255,0.06); border-color: var(--gold); }
+.int-card__dept {
+  font-family: var(--ui);
+  font-size: 0.57rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-mid); margin-bottom: 0.75rem;
+}
+.int-card__title {
+  font-family: var(--body);
+  font-weight: 600; font-size: 1.1rem; line-height: 1.3;
+  color: var(--white); margin-bottom: 0.5rem;
+}
+.int-card__name {
+  font-family: var(--ui);
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 1.25rem;
+}
+.int-card__quote {
+  font-family: var(--body);
+  font-size: 0.9rem; font-style: italic;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+  border-left: 2px solid var(--gold);
+  padding-left: 1rem; flex: 1; margin-bottom: 1.5rem;
+}
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--display);
+  font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 1px; background: none; cursor: pointer;
+  border-left: none; border-right: none; border-top: none;
+  transition: color .2s, border-color .2s;
+  margin-top: auto;
+}
+.btn-ghost:hover { color: var(--gold-light); border-color: var(--gold); }
+.btn-ghost svg { width: 11px; height: 11px; }
+
+/* ══════════════════════════════════════════════════════════
+   PULL QUOTE
+══════════════════════════════════════════════════════════ */
+.pull-section {
+  background: var(--cream);
+  padding: 5.5rem 2rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.pull-inner {
+  max-width: 860px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.pull-bar {
+  width: 4px; background: var(--gold);
+  height: 100%; align-self: stretch;
+  min-height: 120px;
+}
+.pull-text {
+  font-family: var(--body);
+  font-size: clamp(1.35rem, 2.8vw, 2.1rem);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--charcoal);
+  margin-bottom: 1.5rem;
+}
+.pull-attr {}
+.pull-name {
+  font-family: var(--display);
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--charcoal); display: block; margin-bottom: 0.2rem;
+}
+.pull-role {
+  font-family: var(--ui);
+  font-size: 0.65rem; color: var(--muted); letter-spacing: 0.06em;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SPOTLIGHT
+══════════════════════════════════════════════════════════ */
+.spotlight {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 5rem 2rem;
+}
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 1px;
+  background: var(--rule);
+}
+.spotlight-body {
+  background: var(--charcoal);
+  padding: 4rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.spotlight-dept {
+  font-family: var(--ui);
+  font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gold-mid); margin-bottom: 1.25rem;
+}
+.spotlight-title {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  line-height: 1.2; color: var(--white); margin-bottom: 0.6rem;
+}
+.spotlight-name {
+  font-family: var(--display);
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 1.5rem;
+}
+.spotlight-text {
+  font-family: var(--body);
+  font-size: 0.97rem; font-style: italic;
+  color: rgba(255,255,255,0.6); line-height: 1.75;
+  margin-bottom: 2rem; max-width: 460px;
+}
+.spotlight-quote {
+  font-family: var(--body);
+  font-size: 1.05rem; font-style: italic;
+  color: var(--gold-light);
+  border-left: 2px solid var(--gold);
+  padding-left: 1.2rem; margin-bottom: 2.5rem;
+  max-width: 420px; line-height: 1.55;
+}
+.btn-outline-gold {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--display);
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold); border: 1.5px solid var(--gold);
+  padding: 0.85rem 1.75rem; cursor: pointer; background: none;
+  transition: background .2s, color .2s;
+}
+.btn-outline-gold:hover { background: var(--gold); color: var(--charcoal); }
+.btn-outline-gold svg { width: 13px; height: 13px; }
+.spotlight-img {
+  overflow: hidden; position: relative;
+  min-height: 480px;
+}
+.spotlight-img img { height: 100%; }
+.spotlight-img::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to right, var(--charcoal) 0%, transparent 35%);
+}
+
+/* ══════════════════════════════════════════════════════════
+   TWO-UP FEATURE (Farzana)
+══════════════════════════════════════════════════════════ */
+.twoup {
+  background: var(--cream);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.twoup-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--rule);
+}
+.twoup-img { overflow: hidden; min-height: 540px; }
+.twoup-img img { height: 100%; }
+.twoup-body {
+  background: var(--white);
+  padding: 4.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.twoup-dept { font-family: var(--ui); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.twoup-title {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  line-height: 1.25; color: var(--charcoal); margin-bottom: 0.5rem;
+}
+.twoup-name { font-family: var(--display); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+.twoup-text { font-family: var(--body); font-size: 0.97rem; color: var(--mid); line-height: 1.8; margin-bottom: 1.5rem; }
+.twoup-blockquote {
+  font-family: var(--body); font-size: 1.05rem; font-style: italic;
+  color: var(--charcoal);
+  border-left: 3px solid var(--gold); padding-left: 1.25rem;
+  margin-bottom: 2.25rem; line-height: 1.55;
+}
+
+/* ══════════════════════════════════════════════════════════
+   THE MAGAZINE (About)
+══════════════════════════════════════════════════════════ */
+.about-section {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 5.5rem 2rem;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem 4rem;
+  margin-top: 3rem;
+}
+.about-item {}
+.about-item-num {
+  font-family: var(--display);
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 0.6rem;
+}
+.about-item-title {
+  font-family: var(--display);
+  font-weight: 700; font-size: 1rem; letter-spacing: 0.04em;
+  color: var(--charcoal); margin-bottom: 0.65rem;
+}
+.about-item-text {
+  font-family: var(--body);
+  font-size: 0.9rem; color: var(--mid); line-height: 1.75;
+}
+.about-mission {
+  max-width: 720px;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--rule);
+}
+.about-mission-text {
+  font-family: var(--body);
+  font-size: 1.15rem; font-style: italic;
+  line-height: 1.75; color: var(--dark);
+}
+.about-mission-sig {
+  font-family: var(--display);
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); margin-top: 1.25rem; display: block;
+}
+
+/* ══════════════════════════════════════════════════════════
+   ISSUES
+══════════════════════════════════════════════════════════ */
+.issues-section {
+  background: var(--charcoal);
+  padding: 5rem 2rem;
+  border-top: 3px solid var(--gold);
+}
+.issues-inner { max-width: var(--max-w); margin: 0 auto; }
+.issues-section .section-title { color: var(--white); }
+.issues-section .section-sub { color: rgba(255,255,255,0.4); }
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.issue-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color .25s;
+}
+.issue-card:hover { border-color: var(--gold); }
+.issue-card--active { border-color: var(--gold); }
+.issue-card__cover {
+  height: 240px; overflow: hidden; position: relative;
+  background: rgba(255,255,255,0.03);
+}
+.issue-card__cover img { height: 100%; }
+.issue-card__vol {
+  position: absolute; top: 0.85rem; left: 0.85rem; z-index: 1;
+  background: var(--gold); color: var(--charcoal);
+  font-family: var(--display); font-size: 0.55rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 0.28rem 0.6rem;
+}
+.issue-card__body { padding: 1.25rem 1.4rem; }
+.issue-card__label {
+  font-family: var(--ui); font-size: 0.55rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold-mid); margin-bottom: 0.4rem; display: block;
+}
+.issue-card__title {
+  font-family: var(--body); font-weight: 600; font-size: 0.92rem;
+  line-height: 1.3; color: var(--white); margin-bottom: 0.3rem;
+}
+.issue-card__date {
+  font-family: var(--ui); font-size: 0.6rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em;
+}
+.issue-card--upcoming {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 340px; text-align: center;
+}
+.issue-card--upcoming .upcoming-icon {
+  font-family: var(--display); font-size: 2rem; font-weight: 700;
+  color: rgba(255,255,255,0.07); margin-bottom: 1rem; line-height: 1;
+}
+.issue-card--upcoming p {
+  font-family: var(--ui); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(255,255,255,0.2);
+}
+
+/* ══════════════════════════════════════════════════════════
+   ARTICLES
+══════════════════════════════════════════════════════════ */
+.articles-section {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 5rem 2rem;
+}
+.articles-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--rule);
+  margin-top: 0;
+}
+.art-item {
+  background: var(--off-white);
+  padding: 1.75rem 2.25rem;
+  display: flex; gap: 1.5rem; align-items: flex-start;
+  transition: background .2s;
+  cursor: default;
+}
+.art-item:hover { background: var(--white); }
+.art-num {
+  font-family: var(--display); font-size: 2.2rem; font-weight: 700;
+  line-height: 1; color: var(--rule); flex-shrink: 0;
+  width: 2.4rem; text-align: right; user-select: none;
+  margin-top: 0.15rem;
+}
+.art-content {}
+.art-dept {
+  font-family: var(--ui); font-size: 0.55rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+.art-title {
+  font-family: var(--body); font-weight: 600; font-size: 1rem;
+  line-height: 1.35; color: var(--charcoal); margin-bottom: 0.45rem;
+}
+.art-desc {
+  font-family: var(--body); font-size: 0.85rem; color: var(--mid); line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════════ */
+footer {
+  background: var(--black);
+  padding: 4.5rem 2rem 2.5rem;
+}
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 2rem;
+}
+.footer-brand {}
+.footer-name {
+  font-family: var(--display); font-weight: 700; font-size: 1.3rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--white);
+  margin-bottom: 0.3rem; display: block;
+}
+.footer-tagline {
+  font-family: var(--body); font-size: 0.8rem; font-style: italic;
+  color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; display: block;
+}
+.footer-about {
+  font-family: var(--body); font-size: 0.85rem;
+  color: rgba(255,255,255,0.38); line-height: 1.75;
+}
+.footer-col {}
+.footer-col-title {
+  font-family: var(--display); font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-mid); margin-bottom: 1.25rem; display: block;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-links li button,
+.footer-links li a {
+  font-family: var(--sans); font-size: 0.82rem;
+  color: rgba(255,255,255,0.38);
+  transition: color .2s; background: none; border: none; cursor: pointer;
+  padding: 0; text-align: left; font-family: var(--sans);
+}
+.footer-links li button:hover,
+.footer-links li a:hover { color: var(--gold-light); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-copy {
+  font-family: var(--ui); font-size: 0.65rem; letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.2);
+}
+.footer-gold-rule {
+  width: 32px; height: 2px; background: var(--gold); opacity: 0.35;
+}
+
+/* ══════════════════════════════════════════════════════════
+   MODALS
+══════════════════════════════════════════════════════════ */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(13,12,10,0.97);
+  opacity: 0; visibility: hidden; overflow-y: auto;
+  transition: opacity .3s ease, visibility .3s ease;
+}
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal-bar {
+  position: fixed; top: 0; left: 0; right: 0; height: 54px;
+  background: rgba(13,12,10,0.98);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; z-index: 1001;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.modal-bar-label {
+  font-family: var(--display); font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+.modal-bar-label span { color: var(--gold-light); }
+.modal-close {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: var(--display); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); cursor: pointer; transition: color .2s;
+  background: none; border: none;
+}
+.modal-close:hover { color: var(--white); }
+.modal-close svg { width: 15px; height: 15px; }
+.modal-body {
+  max-width: 820px; margin: 0 auto;
+  padding: 5.5rem 2rem 5rem;
+}
+.modal-hero-img {
+  width: 100%; height: 400px; overflow: hidden; position: relative; margin-bottom: 2.5rem;
+}
+.modal-hero-img img { height: 100%; object-position: center 18%; }
+.modal-hero-img::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  background: linear-gradient(to top, rgba(13,12,10,0.98) 0%, transparent 100%);
+}
+.modal-kicker {
+  font-family: var(--ui); font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-mid); margin-bottom: 0.75rem;
+}
+.modal-title {
+  font-family: var(--body); font-weight: 600;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.1;
+  color: var(--white); margin-bottom: 1rem;
+}
+.modal-title em { font-style: italic; }
+.modal-bylines {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+  padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 2rem;
+}
+.modal-byline-item {
+  font-family: var(--ui); font-size: 0.68rem; font-weight: 700;
+  color: rgba(255,255,255,0.5); letter-spacing: 0.04em;
+}
+.modal-byline-item strong { color: var(--white); }
+.modal-intro {
+  font-family: var(--body); font-size: 1.08rem; font-style: italic;
+  color: rgba(255,255,255,0.65); line-height: 1.78;
+  border-left: 3px solid var(--gold); padding-left: 1.5rem; margin-bottom: 3rem;
+}
+.modal-qa { list-style: none; }
+.modal-qa-item { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.modal-qa-item:last-child { border-bottom: none; margin-bottom: 0; }
+.modal-q {
+  font-family: var(--body); font-weight: 600; font-style: italic;
+  font-size: 1.08rem; line-height: 1.5; color: var(--gold-light); margin-bottom: 0.9rem;
+}
+.modal-q::before {
+  content: 'Q '; font-style: normal; font-family: var(--display);
+  font-size: 0.72em; letter-spacing: 0.14em; color: var(--gold);
+}
+.modal-a {
+  font-family: var(--body); font-size: 0.96rem; color: rgba(255,255,255,0.68); line-height: 1.85;
+}
+.modal-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 3rem;
+  padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.07);
+}
+.modal-tag {
+  font-family: var(--ui); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--gold-mid); border: 1px solid rgba(201,160,58,0.25); padding: 0.28rem 0.7rem;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .issue-grid { grid-template-columns: 1fr 1fr; }
+  .card--lead { grid-row: 1; grid-column: 1/3; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .issues-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 800px) {
+  .issue-grid { grid-template-columns: 1fr; }
+  .card--lead { grid-column: 1; }
+  .int-grid { grid-template-columns: 1fr; }
+  .spotlight-grid { grid-template-columns: 1fr; }
+  .spotlight-img { min-height: 320px; }
+  .spotlight-img::before { background: linear-gradient(to top, var(--charcoal) 0%, transparent 40%); }
+  .twoup-inner { grid-template-columns: 1fr; }
+  .twoup-img { min-height: 320px; }
+  .about-grid { grid-template-columns: 1fr 1fr; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .issues-grid { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .masthead-name { font-size: clamp(1.8rem, 7vw, 3rem); }
+}
+@media (max-width: 540px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .issues-grid { grid-template-columns: 1fr; }
+  .pull-inner { grid-template-columns: 1fr; }
+  .pull-bar { display: none; }
+  .twoup-body { padding: 2.5rem 2rem; }
+  .spotlight-body { padding: 2.5rem 2rem; }
+  .modal-hero-img { height: 240px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><span>Issue One Now Available</span> — Climate Justice &amp; The Road to 1.5°C</span>
+    <span class="ticker-item">6 Exclusive Interviews &nbsp;·&nbsp; International Law &nbsp;·&nbsp; Gender &amp; Climate &nbsp;·&nbsp; Youth Diplomacy</span>
+    <span class="ticker-item"><span>Nature &amp; Climate Magazine</span> — Published in Bangladesh, for the World</span>
+    <span class="ticker-item"><span>Issue One Now Available</span> — Climate Justice &amp; The Road to 1.5°C</span>
+    <span class="ticker-item">6 Exclusive Interviews &nbsp;·&nbsp; International Law &nbsp;·&nbsp; Gender &amp; Climate &nbsp;·&nbsp; Youth Diplomacy</span>
+    <span class="ticker-item"><span>Nature &amp; Climate Magazine</span> — Published in Bangladesh, for the World</span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <div class="masthead-brand">
+        <svg class="masthead-leaf" viewBox="0 0 42 42" fill="none">
+          <path d="M21 5C21 5 7 13 7 24C7 31.18 13.27 37 21 37C28.73 37 35 31.18 35 24C35 13 21 5 21 5Z" fill="#1e3d28"/>
+          <path d="M21 14V37" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+        </svg>
+        <div class="masthead-wordmark">
+          <span class="masthead-name">Nature &amp; Climate</span>
+          <span class="masthead-tagline">The Magazine of Climate Diplomacy, Science &amp; Justice</span>
+        </div>
+      </div>
+      <div class="masthead-meta">
+        <span class="masthead-issue-label">Current Issue</span>
+        <span class="masthead-issue-num">Vol. I</span>
+        <span class="masthead-issue-date">Issue One &bull; 2025</span>
+      </div>
+    </div>
+    <div class="masthead-rule"></div>
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">N&amp;C</span>
+    <ul class="nav-links">
+      <li><a href="#current">Current Issue</a></li>
+      <li><a href="#interviews">Interviews</a></li>
+      <li><a href="#about">The Magazine</a></li>
+      <li><a href="#issues">All Issues</a></li>
+      <li><a href="#articles">Articles</a></li>
+    </ul>
+    <a href="#current" class="nav-cta">Read Issue One</a>
+  </div>
+</nav>
+
+<!-- HERO — COVER STORY -->
+<section class="hero" id="current">
+  <img class="hero-img" src="Dr.%20Payam%20Akhavan/Payam-Akhavan-Main.jpg"
+       alt="Dr. Payam Akhavan" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-bottom"></div>
+  <div class="hero-content">
+    <div class="hero-dept">
+      <div class="hero-dept-rule"></div>
+      <span class="hero-dept-label">Cover Story &bull; International Law</span>
+    </div>
+    <h1 class="hero-title"><em>Justice</em> for a Warming World</h1>
+    <p class="hero-deck">Dr. Payam Akhavan on the ICJ's landmark advisory opinion, the legal weight of the 1.5&deg;C target, and why the fight against climate change is ultimately a battle for global justice.</p>
+    <div class="hero-foot">
+      <span class="hero-byline">Interview with <strong>Dr. Payam Akhavan</strong> &nbsp;&bull;&nbsp; ICJ Counsel &bull; University of Toronto</span>
+      <button class="btn-gold" onclick="openModal('payam')">
+        Read Interview
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- CURRENT ISSUE GRID -->
+<section class="current-section">
+  <div class="section-header reveal">
+    <div class="section-kicker"><div class="kicker-rule"></div><span class="kicker-label">Issue One</span></div>
+    <h2 class="section-title">Voices at the Forefront</h2>
+    <p class="section-sub">Six essential conversations from courts, communities and climate summits to the field.</p>
+  </div>
+  <div class="issue-grid reveal">
+
+    <!-- Lead: Sohanur Rahman -->
+    <div class="card card--lead" onclick="openModal('sohanur')">
+      <div class="card__img">
+        <img src="Mr.%20Sohanur%20Rahman/DSC04361.JPG" alt="Sohanur Rahman"
+             onerror="this.parentElement.style.background='#2c2820'">
+        <div class="card__img-tint"></div>
+      </div>
+      <div class="card__body">
+        <span class="card__dept">Climate Justice &bull; Youth Action</span>
+        <h3 class="card__title">Confronting the Environmental Crisis</h3>
+        <p class="card__excerpt">Sohanur Rahman — born in a cyclone-prone coastal district and shaped by the devastation of Cyclone Sidr — has spent his career at the intersection of lived experience and international climate policy. He argues, with force, that climate change is not merely an environmental problem. It is a humanitarian and justice crisis demanding systemic transformation.</p>
+        <div class="card__foot">
+          <span class="card__byline"><strong>Sohanur Rahman</strong><br>Executive Coordinator, YouthNet Global</span>
+          <button class="btn-inline" onclick="openModal('sohanur')">
+            Read Interview
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Side: Shaheen Anam -->
+    <div class="card card--side" onclick="openModal('shaheen')">
+      <div class="card__img">
+        <img src="Ms.%20Shaheen%20Anam/WhatsApp%20Image%202025-10-21%20at%2010.48.16%20AM.jpeg"
+             alt="Shaheen Anam" onerror="this.parentElement.style.background='#2c2820'">
+        <div class="card__img-tint"></div>
+      </div>
+      <div class="card__body">
+        <span class="card__dept">Policy &bull; Gender Equity</span>
+        <h3 class="card__title">Strengthening Climate Policy and Accountability</h3>
+        <p class="card__excerpt">The Executive Director of Manusher Jonno Foundation on why climate resilience must be built into every strand of national development.</p>
+        <div class="card__foot">
+          <span class="card__byline"><strong>Shaheen Anam</strong><br>MBE — Manusher Jonno Foundation</span>
+          <button class="btn-inline" onclick="openModal('shaheen')">Read<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Side: Dilruba Haider -->
+    <div class="card card--side" onclick="openModal('dilruba')">
+      <div class="card__img">
+        <img src="Ms.%20Dilruba%20Haider/profile.jpg" alt="Dilruba Haider"
+             onerror="this.parentElement.style.background='#2c2820'">
+        <div class="card__img-tint"></div>
+      </div>
+      <div class="card__body">
+        <span class="card__dept">Women Leadership &bull; UN Women</span>
+        <h3 class="card__title">Towards Inclusive Climate Action</h3>
+        <p class="card__excerpt">Dilruba Haider of UN Women on why gender-disaggregated data and women-led organizations are the missing infrastructure of effective climate adaptation.</p>
+        <div class="card__foot">
+          <span class="card__byline"><strong>Dilruba Haider</strong><br>Programme Specialist, UN Women Bangladesh</span>
+          <button class="btn-inline" onclick="openModal('dilruba')">Read<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DARK BAND — 3 MORE INTERVIEWS -->
+<section id="interviews" class="dark-band">
+  <div class="dark-band-inner">
+    <div class="section-header reveal">
+      <div class="section-kicker"><div class="kicker-rule"></div><span class="kicker-label">In Conversation</span></div>
+      <h2 class="section-title">More from Issue One</h2>
+      <p class="section-sub">From international courts to UN summits to the cricket field — three more essential conversations.</p>
+    </div>
+    <div class="int-grid reveal">
+
+      <div class="int-card" onclick="openModal('payam')">
+        <span class="int-card__dept">International Law &bull; ICJ</span>
+        <h3 class="int-card__title">Justice for a Warming World</h3>
+        <p class="int-card__name">Dr. Payam Akhavan — ICJ Counsel, University of Toronto</p>
+        <p class="int-card__quote">"The duty to exercise due diligence to prevent significant harm is no longer an abstract concept. It is concretely defined in relation to the 1.5-degree goal."</p>
+        <button class="btn-ghost">Read Interview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+
+      <div class="int-card" onclick="openModal('farzana')">
+        <span class="int-card__dept">Climate Equity &bull; UN Youth Advisor</span>
+        <h3 class="int-card__title">The Fight for Climate Justice</h3>
+        <p class="int-card__name">Farzana Faruk Jhumu — Youth Advisor, UN Secretary-General</p>
+        <p class="int-card__quote">"People are always in survival mode. Many vulnerable individuals don't even understand what their rights are or when those rights are being violated."</p>
+        <button class="btn-ghost">Read Interview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+
+      <div class="int-card" onclick="openModal('riyad')">
+        <span class="int-card__dept">Spotlight &bull; Sport &amp; Planet</span>
+        <h3 class="int-card__title">Playing for the Planet</h3>
+        <p class="int-card__name">Mohammad Mahmudullah Riyad — Former National Cricket Captain</p>
+        <p class="int-card__quote">"By being responsible citizens and making small, thoughtful choices every day, we can contribute to a cleaner, healthier, and more liveable planet for everyone."</p>
+        <button class="btn-ghost">Read Interview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-section">
+  <div class="pull-inner reveal">
+    <div class="pull-bar"></div>
+    <div>
+      <p class="pull-text">"Climate change is no longer an environmental issue alone — it is a national development challenge that demands foresight, inclusivity, and unwavering political will."</p>
+      <div class="pull-attr">
+        <span class="pull-name">Shaheen Anam</span>
+        <span class="pull-role">Executive Director, Manusher Jonno Foundation &bull; Honorary MBE</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SPOTLIGHT: MAHMUDULLAH RIYAD -->
+<section class="spotlight">
+  <div class="spotlight-grid reveal">
+    <div class="spotlight-body">
+      <span class="spotlight-dept">Spotlight &bull; Issue One</span>
+      <h2 class="spotlight-title">Playing for the Planet</h2>
+      <p class="spotlight-name">Mohammad Mahmudullah Riyad &mdash; Former Captain, Bangladesh National Cricket Team</p>
+      <p class="spotlight-text">One of Bangladesh's most celebrated athletes steps beyond the boundary rope to speak not as a sportsman, but as a citizen of the planet. On clean air, ecological loss, the weight of public influence, and why getting close to nature is the truest form of recovery.</p>
+      <blockquote class="spotlight-quote">
+        "By being responsible citizens and making small, thoughtful choices every day, we can contribute to a cleaner, healthier, and more liveable planet for everyone."
+      </blockquote>
+      <button class="btn-outline-gold" onclick="openModal('riyad')">
+        Read the Interview
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="spotlight-img">
+      <img src="Mohammad%20Mahmudullah%20Riyad/WhatsApp%20Image%202025-10-22%20at%209.48.14%20PM.jpeg"
+           alt="Mohammad Mahmudullah Riyad"
+           onerror="this.parentElement.style.background='#1a1814'">
+    </div>
+  </div>
+</section>
+
+<!-- TWO-UP: FARZANA -->
+<section class="twoup">
+  <div class="twoup-inner reveal">
+    <div class="twoup-img">
+      <img src="Ms.%20Farzana%20Faruk%20Jhumu/SB58%2009.06.2023%20-%20%40david_adelmann-059.jpg"
+           alt="Farzana Faruk Jhumu at COP"
+           onerror="this.parentElement.style.background='#2c2820'">
+    </div>
+    <div class="twoup-body">
+      <span class="twoup-dept">Environmental Equity &bull; Global Responsibility</span>
+      <h2 class="twoup-title">The Fight for Climate Justice</h2>
+      <p class="twoup-name">Farzana Faruk Jhumu &mdash; Youth Advisor to the UN Secretary-General</p>
+      <p class="twoup-text">From saline-affected coastal communities in Bangladesh to the floor of the UN General Assembly, Farzana Faruk Jhumu carries a single argument: that climate justice — real, enforceable, accountable — must be the non-negotiable foundation of all global climate action.</p>
+      <blockquote class="twoup-blockquote">
+        "You can't tell a woman to 'adapt' to such suffering. The only sustainable path forward is to minimise and mitigate the impacts of climate change."
+      </blockquote>
+      <button class="btn-gold" onclick="openModal('farzana')">
+        Read Full Interview
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- THE MAGAZINE -->
+<section id="about" class="about-section">
+  <div class="section-header reveal">
+    <div class="section-kicker"><div class="kicker-rule"></div><span class="kicker-label">The Magazine</span></div>
+    <h2 class="section-title">What is Nature &amp; Climate?</h2>
+    <p class="section-sub">A publication built on the belief that the climate story is, above all, a human story.</p>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-item">
+      <span class="about-item-num">01 — Editorial</span>
+      <h3 class="about-item-title">Premium Editorial Standards</h3>
+      <p class="about-item-text">Every issue of Nature &amp; Climate is built around original, long-form interviews and reporting. We speak directly with the scientists, lawyers, diplomats, activists and policymakers shaping global climate action.</p>
+    </div>
+    <div class="about-item">
+      <span class="about-item-num">02 — Perspective</span>
+      <h3 class="about-item-title">Bangladesh to the World</h3>
+      <p class="about-item-text">Published from one of the most climate-vulnerable nations on earth, our perspective is grounded in frontline reality. We bring that urgency to an international readership.</p>
+    </div>
+    <div class="about-item">
+      <span class="about-item-num">03 — Access</span>
+      <h3 class="about-item-title">Exclusive Access</h3>
+      <p class="about-item-text">Our first issue alone features conversations with an ICJ counsel, a UN Youth Advisor, a UN Women specialist, a national cricket captain and leading civil society voices. That is the standard we hold ourselves to.</p>
+    </div>
+  </div>
+  <div class="about-mission reveal">
+    <p class="about-mission-text">"Nature &amp; Climate exists to bring the depth, rigour and craft of premium editorial journalism to the most consequential conversation of our time. Each issue is a permanent record — of ideas, of the people advancing them, and of the moment we are in."</p>
+    <span class="about-mission-sig">The Editors &bull; Nature &amp; Climate &bull; Issue One, 2025</span>
+  </div>
+</section>
+
+<!-- ALL ISSUES -->
+<section id="issues" class="issues-section">
+  <div class="issues-inner">
+    <div class="section-header reveal">
+      <div class="section-kicker"><div class="kicker-rule"></div><span class="kicker-label">Archive</span></div>
+      <h2 class="section-title">Published Issues</h2>
+      <p class="section-sub">Issue One is available now. New issues published periodically — each a self-contained work of record.</p>
+    </div>
+    <div class="issues-grid reveal">
+
+      <div class="issue-card issue-card--active" onclick="openModal('payam')">
+        <div class="issue-card__cover">
+          <img src="Dr.%20Payam%20Akhavan/Payam-Akhavan-Main.jpg" alt="Issue One Cover"
+               onerror="this.parentElement.style.background='#2c2820'">
+          <span class="issue-card__vol">Vol. I</span>
+        </div>
+        <div class="issue-card__body">
+          <span class="issue-card__label">Issue One &bull; 2025</span>
+          <p class="issue-card__title">Climate Justice &amp; The Road to 1.5&deg;C</p>
+          <span class="issue-card__date">6 interviews &bull; 8 articles &bull; Bangladesh</span>
+        </div>
+      </div>
+
+      <div class="issue-card issue-card--upcoming">
+        <div class="upcoming-icon">II</div>
+        <p>Issue Two<br>Coming Soon</p>
+      </div>
+      <div class="issue-card issue-card--upcoming">
+        <div class="upcoming-icon">III</div>
+        <p>Issue Three<br>Coming Soon</p>
+      </div>
+      <div class="issue-card issue-card--upcoming">
+        <div class="upcoming-icon">IV</div>
+        <p>Issue Four<br>Coming Soon</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles" class="articles-section">
+  <div class="section-header reveal">
+    <div class="section-kicker"><div class="kicker-rule"></div><span class="kicker-label">Issue One</span></div>
+    <h2 class="section-title">Articles &amp; Analysis</h2>
+    <p class="section-sub">In-depth reporting from Bangladesh's climate frontlines.</p>
+  </div>
+  <div class="articles-grid reveal">
+    <div class="art-item">
+      <span class="art-num">01</span>
+      <div>
+        <span class="art-dept">Climate Policy</span>
+        <h3 class="art-title">Bangladesh's Climate Governance: From Policy to Practice</h3>
+        <p class="art-desc">An examination of the National Adaptation Plan, NDC 3.0, and the institutional gaps preventing strong policies from translating into ground-level action.</p>
+      </div>
+    </div>
+    <div class="art-item">
+      <span class="art-num">02</span>
+      <div>
+        <span class="art-dept">International Law</span>
+        <h3 class="art-title">The ICJ Advisory Opinion: A New Legal Landscape</h3>
+        <p class="art-desc">How the International Court of Justice's landmark ruling reshapes state obligations for high-emitting nations and empowers the climate-vulnerable.</p>
+      </div>
+    </div>
+    <div class="art-item">
+      <span class="art-num">03</span>
+      <div>
+        <span class="art-dept">Gender &amp; Climate</span>
+        <h3 class="art-title">The Invisible Burden: Women at the Climate Frontline</h3>
+        <p class="art-desc">From saline-water health crises in Satkhira to early marriage as a climate coping mechanism — how climate stress compounds gender inequality in coastal Bangladesh.</p>
+      </div>
+    </div>
+    <div class="art-item">
+      <span class="art-num">04</span>
+      <div>
+        <span class="art-dept">Finance &amp; Accountability</span>
+        <h3 class="art-title">Following the Money: Does Climate Finance Reach the Vulnerable?</h3>
+        <p class="art-desc">A deep dive into whether international climate commitments are translating into real financial flows to the communities that need them most.</p>
+      </div>
+    </div>
+    <div class="art-item">
+      <span class="art-num">05</span>
+      <div>
+        <span class="art-dept">Resilience &amp; Innovation</span>
+        <h3 class="art-title">Floating Gardens and Clay Pots: Bangladesh's Indigenous Climate Ingenuity</h3>
+        <p class="art-desc">Centuries-old adaptation traditions — from Barishal's floating gardens to Khulna's rainwater storage — offer a model for nature-based resilience the world should study.</p>
+      </div>
+    </div>
+    <div class="art-item">
+      <span class="art-num">06</span>
+      <div>
+        <span class="art-dept">Youth &amp; Education</span>
+        <h3 class="art-title">The Next Generation: Climate Literacy as National Strategy</h3>
+        <p class="art-desc">Why embedding climate science into the national curriculum — and properly investing in youth leadership — may be Bangladesh's most consequential long-term climate intervention.</p>
+      </div>
+    </div>
+    <div class="art-item">
+      <span class="art-num">07</span>
+      <div>
+        <span class="art-dept">Displacement</span>
+        <h3 class="art-title">Climate Refugees: Bangladesh's Urban Migration Crisis</h3>
+        <p class="art-desc">As millions of climate-displaced people arrive in Dhaka and Chittagong, the cities' inability to absorb them reveals the true cost of delayed adaptation investment.</p>
+      </div>
+    </div>
+    <div class="art-item">
+      <span class="art-num">08</span>
+      <div>
+        <span class="art-dept">Data &amp; Evidence</span>
+        <h3 class="art-title">Measuring What Matters: The Gender–Climate Data Gap</h3>
+        <p class="art-desc">UN Women's collaboration with Bangladesh Bureau of Statistics to create the country's first national Gender and Environment Survey — and why the data gap has cost lives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-name">Nature &amp; Climate</span>
+        <span class="footer-tagline">The Magazine of Climate Diplomacy, Science &amp; Justice</span>
+        <p class="footer-about">A premium editorial magazine built on the belief that the climate story is, above all, a human story. Published from Bangladesh — written for the world. Each issue is a permanent record of the ideas and people shaping our response to the defining challenge of our era.</p>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Issue One</span>
+        <ul class="footer-links">
+          <li><button onclick="openModal('payam')">Justice for a Warming World</button></li>
+          <li><button onclick="openModal('farzana')">The Fight for Climate Justice</button></li>
+          <li><button onclick="openModal('shaheen')">Strengthening Climate Policy</button></li>
+          <li><button onclick="openModal('sohanur')">Confronting the Environmental Crisis</button></li>
+          <li><button onclick="openModal('dilruba')">Towards Inclusive Climate Action</button></li>
+          <li><button onclick="openModal('riyad')">Playing for the Planet</button></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">The Magazine</span>
+        <ul class="footer-links">
+          <li><a href="#current">Current Issue</a></li>
+          <li><a href="#interviews">All Interviews</a></li>
+          <li><a href="#articles">Articles</a></li>
+          <li><a href="#issues">Archive</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Current Issue</span>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);padding:1.25rem 1.4rem;">
+          <span style="font-family:var(--ui);font-size:0.55rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-mid);display:block;margin-bottom:0.4rem;">Vol. I &bull; Issue One</span>
+          <p style="font-family:var(--body);font-weight:600;font-size:0.9rem;color:var(--white);margin-bottom:0.3rem;line-height:1.35;">Climate Justice &amp; The Road to 1.5&deg;C</p>
+          <span style="font-family:var(--ui);font-size:0.6rem;color:rgba(255,255,255,0.25);">2025 &bull; Bangladesh</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Nature &amp; Climate Magazine. All rights reserved.</p>
+      <div class="footer-gold-rule"></div>
+      <p class="footer-copy">Volume One &bull; First Edition</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════
+     MODAL: DR. PAYAM AKHAVAN
+════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-payam" onclick="closeModalOnOverlay(event,'payam')">
+  <div class="modal-bar">
+    <span class="modal-bar-label">Nature &amp; Climate &bull; <span>Cover Story</span></span>
+    <button class="modal-close" onclick="closeModal('payam')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Close
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-hero-img">
+      <img src="Dr.%20Payam%20Akhavan/Payam-Akhavan-Main.jpg" alt="Dr. Payam Akhavan"
+           onerror="this.parentElement.style.background='#1a1814'">
+    </div>
+    <p class="modal-kicker">Cover Story &bull; International Law &bull; Issue One</p>
+    <h1 class="modal-title"><em>Justice</em> for a Warming World</h1>
+    <div class="modal-bylines">
+      <span class="modal-byline-item"><strong>Dr. Payam Akhavan</strong></span>
+      <span class="modal-byline-item">Professor of International Law, Massey College, University of Toronto</span>
+      <span class="modal-byline-item">Counsel to Bangladesh, ICJ &amp; ITLOS Climate Proceedings</span>
+    </div>
+    <p class="modal-intro">Dr. Payam Akhavan is a globally renowned international lawyer and a leading advocate for climate justice. As a Member of the Permanent Court of Arbitration at The Hague, he is at the forefront of efforts to recognise climate harm as a matter of international law. In this interview, Dr. Akhavan discusses the ICJ's landmark advisory opinion, the legal rights of vulnerable nations, and why the fight against climate change is ultimately a fight for global justice and human dignity.</p>
+    <ul class="modal-qa">
+      <li class="modal-qa-item">
+        <p class="modal-q">What are the key legal obligations for states outlined by the ICJ in its advisory opinion on climate change?</p>
+        <p class="modal-a">The primary obligation stems from the principle of transboundary harm, which prohibits a state from using its territory in a manner that causes significant harm to others. Consequently, the foremost duty is to mitigate greenhouse gas emissions. This obligation falls most heavily on developed nations, reflecting the principle of common but differentiated responsibilities.<br><br>Significantly, the Court specifically addresses the production, consumption, and subsidization of fossil fuels, stating that these can constitute internationally wrongful acts in appropriate circumstances. By doing so, the ICJ explicitly outlines the obligation of states to transition away from fossil fuels.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">In what ways does the advisory opinion elevate the Paris Agreement's 1.5°C target from an aspirational goal to a legally relevant standard?</p>
+        <p class="modal-a">This is a crucial point. The Court held that the uncontested scientific evidence — which shows an exponential increase in the risk of catastrophic harm beyond a 1.5-degree Celsius temperature rise — means that the obligation of due diligence must be measured against this target.<br><br>Therefore, the duty to exercise due diligence to prevent significant harm is no longer an abstract concept. It is concretely defined in relation to the 1.5-degree goal. States must exercise due diligence by ensuring that their contributions to greenhouse gas mitigation align with staying within this temperature limit.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">How does the ICJ link climate change to human rights obligations under international law?</p>
+        <p class="modal-a">The ICJ observed that climate change impacts fundamental human rights, including the right to life, the right to health, and the right to a healthy environment — rights already recognised in various UN treaties and declarations.<br><br>However, a critical challenge remains: human rights law is predominantly territorial. For a country like Bangladesh, which contributes negligibly to global emissions yet suffers disproportionate impacts, this territorial focus is insufficient. The principle of transboundary harm more directly addresses the obligations states owe one another in such circumstances.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">What is the significance of the ICJ recognising transboundary environmental harm and state responsibility for private actors?</p>
+        <p class="modal-a">The significance lies not in creating new law, but in applying established principles to the novel context of climate change. The principle of transboundary harm is over a century old, and it is already well-established that a state has a duty to regulate private actors within its territory to prevent harm to other states.<br><br>The pivotal step taken by the ICJ is to explicitly apply these long-standing doctrines to greenhouse gas emissions, thereby clarifying that states are legally responsible for controlling emissions from private industry within their borders.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">How might the ICJ opinion strengthen Bangladesh's position in international negotiations and leverage for climate finance?</p>
+        <p class="modal-a">As a low-lying coastal state that is especially vulnerable to climate change, Bangladesh's pleadings were followed attentively by the Court. This advisory opinion fundamentally strengthens the position of Bangladesh in two key ways.<br><br>First, in forums like the COP negotiations, Bangladesh can now authoritatively state that the long-sought goals of meaningful mitigation, adaptation, and compensation for loss and damages are not merely political requests but are, in fact, binding obligations under international law.<br><br>Second, beyond diplomacy, the opinion provides a legal foundation for potential future contentious proceedings against major emitter states. It shifts the paradigm from vague, voluntary promises to the realm of concrete legal duties, empowering vulnerable nations in their advocacy for climate finance and technical support.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">How does the ICJ's advisory opinion address the principle of Common but Differentiated Responsibilities, and what are its implications for Bangladesh?</p>
+        <p class="modal-a">The ICJ confirms the CBDR principle, which was already established in the 1992 UN Framework Convention on Climate Change. It further clarifies that this principle places the greatest burden on developed states, due to their largest historical carbon footprint. This includes their obligations regarding technology transfer and other forms of assistance to less developed and Least Developed Countries.<br><br>However, it is important to note that for countries such as China, India, Brazil, and Saudi Arabia, the CBDR principle does not absolve them of responsibility. They are not "off the hook" and must also take stringent measures to mitigate their carbon footprints.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">How can Bangladesh's legal system incorporate these international climate obligations into its domestic law?</p>
+        <p class="modal-a">Even without direct applicability, it would certainly be incumbent upon the parliament and other governmental bodies — which contributed significantly to the opinion — to study it and adopt new laws and regulations to reflect this jurisprudence in domestic law, whether through legislation or judicial application.<br><br>I would also note that Bangladesh has already made significant progress in moving toward green energy and is a progressive force on climate change. I am particularly pleased that there is a vibrant civil society in Bangladesh that has been engaged on climate change issues, and such engagement will only increase in importance.</p>
+      </li>
+    </ul>
+    <div class="modal-tags">
+      <span class="modal-tag">Climate Justice</span><span class="modal-tag">Ecocide</span>
+      <span class="modal-tag">#ClimateAccountability</span><span class="modal-tag">#EnvironmentalRights</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     MODAL: FARZANA FARUK JHUMU
+════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-farzana" onclick="closeModalOnOverlay(event,'farzana')">
+  <div class="modal-bar">
+    <span class="modal-bar-label">Nature &amp; Climate &bull; <span>Climate Equity</span></span>
+    <button class="modal-close" onclick="closeModal('farzana')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Close
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-hero-img">
+      <img src="Ms.%20Farzana%20Faruk%20Jhumu/SB58_MarieJacquemin_ClosingPlenary-28.jpg"
+           alt="Farzana Faruk Jhumu" onerror="this.parentElement.style.background='#1a1814'">
+    </div>
+    <p class="modal-kicker">Environmental Equity &bull; Global Responsibility &bull; Issue One</p>
+    <h1 class="modal-title">The Fight for <em>Climate Justice</em></h1>
+    <div class="modal-bylines">
+      <span class="modal-byline-item"><strong>Farzana Faruk Jhumu</strong></span>
+      <span class="modal-byline-item">Youth Advisor on Climate Change to the Secretary-General, United Nations</span>
+    </div>
+    <p class="modal-intro">Farzana Faruk Jhumu is a prominent climate justice activist whose work spans global climate diplomacy and community-centred solutions. She brings critical attention to the lived realities of those most affected by the climate crisis and advocates for a future where climate justice, equity, and accountability are non-negotiable principles in global decision-making.</p>
+    <ul class="modal-qa">
+      <li class="modal-qa-item">
+        <p class="modal-q">Climate change is reshaping our seasons and routines. How are these changes affecting everyday life in Bangladesh?</p>
+        <p class="modal-a">On a personal level, when I was young, my parents and grandparents used to tell us how distinctly they could feel the change of seasons. Bangladesh is, after all, the only country that officially has six seasons. But today, I feel like I can only experience different forms of summer. From this, it's clear that the change is quite significant.<br><br>While working with vulnerable communities, I often hear that although people have become better at adaptation, they're not getting enough time to adjust. The prediction period is too short, and people are in a constant struggle to cope. Many vulnerable individuals don't even understand what their rights are or when those rights are being violated, because they are always in survival mode.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">With climate change uprooting lives and deepening hardships especially for women, what first-hand experiences stand out to you?</p>
+        <p class="modal-a">One of my experiences was in YouthNet Char in Kurigram, where a summit was organised. A young girl, around 16 or 17 years old, came there with her 3-year-old child — essentially a child carrying another child. The main concern we felt was: why are girls marrying so early? What we learned was that since there are no proper educational opportunities, families believe there's no reason to keep girls at home, so they marry them off early.<br><br>I had a similar experience in Satkhira, where I met a 17-year-old girl who also had a 2-year-old baby. Her mother told me that they arranged her marriage early because they live in a saline-affected area — many women face severe menstrual health issues. So, in an attempt to secure their daughters' future, they are unknowingly destroying it — and this entire situation is a direct consequence of climate change.<br><br>In the long run, the only real solution lies in mitigation. You can't tell a woman to "adapt" to such suffering. Adaptation in this context means sacrificing her own body. The only sustainable path forward is to minimise and mitigate the impacts of climate change.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">How effectively are women's voices being included in global climate policy and negotiation spaces?</p>
+        <p class="modal-a">I volunteer with the Women and Gender Constituency under the UNFCCC COP process. If we look back to 1995, during the Beijing Conference of CSW, climate change wasn't even recognised as a major issue within the feminist movement. But now, as we approach Beijing+30, it has become a key agenda item.<br><br>Within the UNFCCC, there is now a dedicated Gender Action Plan — something that didn't exist a decade ago. Feminist advocacy has also helped bring new perspectives, such as recognising women's unpaid care work as part of the global economy. It's estimated that the world loses around $5.7 trillion annually due to unpaid care work, most of which is done by women.<br><br>However, in many countries, women's empowerment is still treated narrowly. When it comes to women's health, safety, and security, particularly during disasters, we still lack women in decision-making roles. This must change if we want true gender-sensitive climate action.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">What gaps still exist in Bangladesh's climate and gender policies?</p>
+        <p class="modal-a">From a feminist and policy perspective, Bangladesh has made commendable progress. We have a Gender Action Plan — something many countries lack — but it needs updating to better reflect current realities. After sustained advocacy, NDC 3.0 now includes much stronger gender and inclusion components.<br><br>The main challenge, however, lies in coordination and implementation. Many of our policies remain disconnected. For Bangladesh to assert global leadership, we must demonstrate not just need, but capacity, transparency, and accountability — proving that we can use climate finance effectively and deliver results.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">Do you think we have sufficient climate warnings to take timely action?</p>
+        <p class="modal-a">In terms of community preparedness, Bangladesh has a robust early warning system. Under the UN's Early Warnings for All initiative, Bangladesh is often highlighted as a country capable of managing local-level responses effectively with limited resources. The Cyclone Preparedness Programme is a great example — it's a community-based model that ensures information access through radio, local news, and volunteer networks.<br><br>However, when it comes to long-term climate trends, the situation is quite different. We often fail to understand or communicate the long-term nature of climate change, so communities don't always have access to that kind of information. Bangladesh needs to focus more on adaptation — particularly by doubling adaptation finance and ensuring that both adaptation and loss-and-damage funds reach the most vulnerable communities quickly and transparently.</p>
+      </li>
+    </ul>
+    <div class="modal-tags">
+      <span class="modal-tag">Environmental Equity</span><span class="modal-tag">Global Responsibility</span>
+      <span class="modal-tag">#LossAndDamage</span><span class="modal-tag">#ClimateSolutions</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     MODAL: SHAHEEN ANAM
+════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-shaheen" onclick="closeModalOnOverlay(event,'shaheen')">
+  <div class="modal-bar">
+    <span class="modal-bar-label">Nature &amp; Climate &bull; <span>Policy &amp; Governance</span></span>
+    <button class="modal-close" onclick="closeModal('shaheen')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Close
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-hero-img">
+      <img src="Ms.%20Shaheen%20Anam/WhatsApp%20Image%202025-10-21%20at%2010.48.17%20AM.jpeg"
+           alt="Shaheen Anam" onerror="this.parentElement.style.background='#1a1814'">
+    </div>
+    <p class="modal-kicker">Gender Equity &bull; Inclusive Development &bull; Issue One</p>
+    <h1 class="modal-title">Strengthening Climate Policy <em>&amp; Accountability</em></h1>
+    <div class="modal-bylines">
+      <span class="modal-byline-item"><strong>Shaheen Anam</strong></span>
+      <span class="modal-byline-item">Executive Director, Manusher Jonno Foundation &bull; Honorary MBE</span>
+    </div>
+    <p class="modal-intro">Shaheen Anam is a leading national voice on climate justice, governance, and gender equality. She speaks on why climate resilience must be treated as a central pillar of national development — not as a separate environmental agenda — and why without transparency and accountability, climate finance will never reach those who need it most.</p>
+    <ul class="modal-qa">
+      <li class="modal-qa-item">
+        <p class="modal-q">How is climate change currently impacting Bangladesh's coastal and riverine communities?</p>
+        <p class="modal-a">Climate change is an existential challenge for Bangladesh, one that is approaching fast with dangerous consequences. Unfortunately, commitments to keep Greenhouse Gas emissions to 2.5 levels are not being met as many countries are not cooperating to limit use of fossil fuel. Bangladesh is facing the consequences of the irresponsibility of larger nations.<br><br>A recent global study revealed that in the eastern coastal area of Bangladesh, saline water intrusion is rising much more quickly than elsewhere. Due to sea level rise, millions of people are already at risk of losing their shelter, crops, and means of livelihood. Every day thousands of people who have lost their homestead and means of livelihood due to river erosion, floods, salinity etc are migrating to cities in search of work. Our cities do not have the means to provide decent housing and employment.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">How effective are Bangladesh's existing policies in building real climate resilience?</p>
+        <p class="modal-a">Building climate change resilience effectively requires more than just policy promises — it demands massive investment in both physical and social infrastructure. Clean water, safe housing, reliable healthcare, and improved community security must become national priorities.<br><br>The foundation of this effort lies in financing and accountability. Securing sufficient funds for adaptation and mitigation is important, but ensuring transparency in how that money is used is even more vital. Too often, financing reaches projects but fails to reach the affected people. Clear monitoring systems, community participation, and independent audits should be embedded in every major climate investment initiative.<br><br>Equally critical is the gender dimension: women remain severely underrepresented in climate policy and decision-making processes. Without women at the table, our planning lacks inclusivity. Climate change is no longer an environmental issue alone — it is a national development challenge that demands foresight, inclusivity, and unwavering political will.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">Women are often on the frontlines of climate stress. In what ways are they disproportionately affected in Bangladesh?</p>
+        <p class="modal-a">Women are disproportionately affected by climate change because of their traditional roles and daily responsibilities — fetching water, cooking, collecting firewood, and tending to livestock. In many coastal and drought-prone areas, a woman may have to walk two or more kilometres just to fetch a single pot of water. This prolonged exposure to saline or contaminated water leads to serious health problems, particularly affecting their reproductive health.<br><br>When women spend hours collecting water or fuel, their safety is constantly at risk. Young girls face an equally grim reality. As families lose income and stability, many girls are forced to drop out of school, and early marriage becomes a means of survival. In every crisis, women are affected in ways that are distinct, complex, and far more severe. Addressing these realities demands a gender-just approach that places women's safety, health, and empowerment at the very centre of climate action.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">What changes in public awareness or behaviour do you believe are essential for Bangladesh to build a truly resilient, climate-conscious future?</p>
+        <p class="modal-a">My expectation is for everyone to realise how serious the threat of climate change is. We must keep in mind that climate change is not coming — it has already come! The changing patterns of excessive rain, heat and floods, plus rising salinity and sea level rise should remind us that the threat to lives of millions is real and imminent.<br><br>Furthermore, our education curriculum should include in-depth chapters on climate change and its impacts. Children have to be educated about this very real threat and how its impacts can be mitigated. It is imperative that the next generation is taught about the impacts of climate change through proper science-based education, training and practical knowledge.</p>
+      </li>
+    </ul>
+    <div class="modal-tags">
+      <span class="modal-tag">Gender Equity</span><span class="modal-tag">Inclusive Development</span>
+      <span class="modal-tag">#CivilSociety</span><span class="modal-tag">#ClimatePolicy</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     MODAL: SOHANUR RAHMAN
+════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-sohanur" onclick="closeModalOnOverlay(event,'sohanur')">
+  <div class="modal-bar">
+    <span class="modal-bar-label">Nature &amp; Climate &bull; <span>Youth Action</span></span>
+    <button class="modal-close" onclick="closeModal('sohanur')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Close
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-hero-img">
+      <img src="Mr.%20Sohanur%20Rahman/DSC06703.JPG" alt="Sohanur Rahman"
+           onerror="this.parentElement.style.background='#1a1814'">
+    </div>
+    <p class="modal-kicker">Community Network &bull; Youth-Led Initiatives &bull; Issue One</p>
+    <h1 class="modal-title">Confronting the <em>Environmental Crisis</em></h1>
+    <div class="modal-bylines">
+      <span class="modal-byline-item"><strong>Sohanur Rahman</strong></span>
+      <span class="modal-byline-item">Executive Coordinator, YouthNet Global &bull; Bangladesh COP Delegation Member</span>
+    </div>
+    <p class="modal-intro">Sohanur Rahman is the Executive Coordinator of YouthNet Global and a leading climate justice advocate whose work bridges local realities and international policy. Born in a cyclone-prone coastal district, his perspective is shaped by lived experience of climate disasters and years of work influencing national adaptation frameworks and international negotiations.</p>
+    <ul class="modal-qa">
+      <li class="modal-qa-item">
+        <p class="modal-q">Can you share your personal journey and inspiration behind working on climate change issues?</p>
+        <p class="modal-a">My engagement with climate change is both deeply personal and profoundly professional. I was born in Jhalakathi, Barishal, a coastal area where climate change is not a theory but a lived reality. My first experience came during Cyclone Sidr in 2007. That night changed everything. Though my family survived, entire communities in Barguna, Shyamnagar and Bagerhat were wiped out. Homes were gone, crops destroyed and livelihoods shattered.<br><br>My turning point came in 2015, after the Paris Agreement. While working with child networks, I learnt that early marriage in Bangladesh is not merely a cultural issue. It is often a coping mechanism for families pushed into poverty by climate disasters. Every time a cyclone strikes, poor families lose everything. That realisation made me understand that climate change is not only an environmental crisis. It is a deeply social one.<br><br>I remember a teenage girl who died during childbirth while being transported overnight by boat to reach the nearest hospital. That moment changed me forever and deepened my commitment to fight for those left behind by the climate crisis.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">How can Bangladesh harness its youth energy for long-term and impactful climate action?</p>
+        <p class="modal-a">Bangladesh has developed a series of strong climate policies, including the National Adaptation Plan, the Climate Action Plan, the Delta Plan, the Climate Prosperity Plan, and most recently the NDC 3.0. The challenge is not a lack of planning but a gap in implementation.<br><br>To translate these plans into action, Bangladesh must tap into its greatest strength — its young people. With the right capacity development and proper investment, young people can play a leading role in driving long-term climate action through innovation, research and community engagement.<br><br>Bangladesh is indeed a climate-vulnerable country, yet we refuse to be defined by our vulnerabilities. We are also one of the most resilient nations in the world. In Barishal, farmers grow crops on floating gardens during waterlogging — a world-renowned adaptation practice. In Khulna, communities store rainwater in traditional clay pots to cope with salinity. These are living examples of indigenous innovation.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">Globally, are youth voices truly being considered in climate discussions?</p>
+        <p class="modal-a">Honestly, the global system is still shaped and controlled by those who built it, and they continue to benefit from it. It rarely listens to the poor, the marginalised, or the youth. Young people today have to carve out their own space, and for that, informed and courageous leadership is essential.<br><br>Climate change is fundamentally an issue of intergenerational justice. It is not a crisis caused by today's youth but the result of decisions made by older generations. Yet we are the ones inheriting its consequences. As Barack Obama said, "We are the first generation to face the climate crisis, and the last generation who can do something about it."<br><br>The 55 countries in the Climate Vulnerable Forum together contribute only 5 per cent of global emissions, yet suffer disproportionately. Meaningful change requires systemic action — holding polluters accountable, ensuring justice for affected communities, and demanding fair compensation.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">How would you evaluate Bangladesh's climate policies and their implementation?</p>
+        <p class="modal-a">Bangladesh has the policies and the vision. The challenge is execution. Despite strong policies and growing climate awareness, implementation remains a major challenge. Climate disasters are intensifying. Water scarcity is worsening. Limited international climate finance, insufficient domestic resources, and gaps in execution continue to hinder progress.<br><br>It is crucial to distinguish between climate action and climate justice. Climate action focuses on reducing impacts, but climate justice ensures fairness, preventing new inequalities and addressing existing ones. With sustained focus on execution, equitable finance, and engagement of youth, the country can turn its climate vulnerabilities into resilience and build a sustainable, just future for all.</p>
+      </li>
+    </ul>
+    <div class="modal-tags">
+      <span class="modal-tag">Community Network</span><span class="modal-tag">Youth-Led Initiatives</span>
+      <span class="modal-tag">#ClimateCrisis</span><span class="modal-tag">#ClimateEquity</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     MODAL: DILRUBA HAIDER
+════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-dilruba" onclick="closeModalOnOverlay(event,'dilruba')">
+  <div class="modal-bar">
+    <span class="modal-bar-label">Nature &amp; Climate &bull; <span>Women &amp; Climate</span></span>
+    <button class="modal-close" onclick="closeModal('dilruba')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Close
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-hero-img">
+      <img src="Ms.%20Dilruba%20Haider/profile.jpg" alt="Dilruba Haider"
+           onerror="this.parentElement.style.background='#1a1814'">
+    </div>
+    <p class="modal-kicker">Women Leadership &bull; Policy Integration &bull; Issue One</p>
+    <h1 class="modal-title">Towards <em>Inclusive</em> Climate Action</h1>
+    <div class="modal-bylines">
+      <span class="modal-byline-item"><strong>Dilruba Haider</strong></span>
+      <span class="modal-byline-item">Programme Specialist, DRR/CCA &bull; UN Women Bangladesh</span>
+    </div>
+    <p class="modal-intro">Dilruba Haider is a leading voice on the intersection of gender and climate justice. In this interview, she highlights why climate change disproportionately impacts women and girls, and explains how gender-responsive policies, data-driven planning, and women-led grassroots organisations are transforming adaptation efforts in Bangladesh.</p>
+    <ul class="modal-qa">
+      <li class="modal-qa-item">
+        <p class="modal-q">How does climate change disproportionately affect women and girls compared to men?</p>
+        <p class="modal-a">In any disaster or crisis, women and girls are often the most affected, as they are among the most marginalised groups in society. While the mortality rate has improved — changing from a ratio of 14 women dying against every 1 man in the 1990s, to a nearly 1:1 ratio today — women continue to be more affected than men socially, economically, and emotionally.<br><br>The effects are multifaceted. Physically, women suffer from reproductive tract infections and urinary tract infections when they are affected by flooding and salinity intrusion. Economically, they are severely impacted because they often work in the informal sector; for example, during a flood, their chickens, cows, or kitchen gardens can be washed away, and they receive little or no support to recover those.<br><br>Emotionally, displacement is deeply traumatising. Women are affected more because they require a sense of protection, safety, and security due to the society we live in. Socially, displacement, the death of a husband, and other social situations worsen their plight, often leading to an increase in gender-based violence.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">What are the key initiatives UN Women Bangladesh is taking to address climate vulnerability through a gender lens?</p>
+        <p class="modal-a">Our work follows two main approaches. The first is policy influencing and institutional capacity building. We supported the government to develop the updated Climate Change and Gender Action Plan, 2023, and are now supporting different ministries to develop their own gender-responsive sectoral adaptation plans.<br><br>We are also helping to establish Gender and Climate Change Focal Points across key ministries — designating officials in Environment, Water Resources, Agriculture, Local Government, Finance, Disaster Management and Relief, and Women and Children Affairs — to ensure gender issues are properly integrated into adaptation work.<br><br>The other part of our work focuses on the grassroots communities. We build the resilience of those most at risk through a cohort of 100 women-led organisations across disaster-vulnerable districts. We develop the capacity of these organisations to become champions for gender-responsive disaster risk reduction and climate action.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">What lessons can Bangladesh offer other countries in implementing gender equality into climate governance?</p>
+        <p class="modal-a">Bangladesh offers a few key lessons. The first relates to women-led organisations. It is crucial to give them leadership, as they are in the frontline at the grassroots where climate impacts are making lives difficult. They know exactly what kind of adaptation support is required.<br><br>Another lesson is the critical importance of data. Without data, you cannot establish a baseline; without a baseline, you cannot set a target; and without a target and indicator, you cannot work towards achieving a gender related result. UN Women is currently collaborating with the Bangladesh Bureau of Statistics on a national Gender and Environment Survey to gather disaggregated data on disaster and climate risks. This can serve as a showcase for other countries on how to collect such data.<br><br>Finally, the focus on institutional capacity building is crucial. It should not only be the Ministry of Women and Children Affairs working on gender issues — it must be all ministries. Both gender and climate change are cross-cutting issues.</p>
+      </li>
+    </ul>
+    <div class="modal-tags">
+      <span class="modal-tag">Women Leadership</span><span class="modal-tag">Policy Integration</span>
+      <span class="modal-tag">#GenderClimateJustice</span><span class="modal-tag">#UNWomen</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     MODAL: MAHMUDULLAH RIYAD
+════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-riyad" onclick="closeModalOnOverlay(event,'riyad')">
+  <div class="modal-bar">
+    <span class="modal-bar-label">Nature &amp; Climate &bull; <span>Spotlight</span></span>
+    <button class="modal-close" onclick="closeModal('riyad')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Close
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-hero-img">
+      <img src="Mohammad%20Mahmudullah%20Riyad/WhatsApp%20Image%202025-10-22%20at%209.48.14%20PM.jpeg"
+           alt="Mohammad Mahmudullah Riyad" onerror="this.parentElement.style.background='#1a1814'">
+    </div>
+    <p class="modal-kicker">Climate Awareness &bull; Human-Nature Connection &bull; Issue One</p>
+    <h1 class="modal-title">Playing for <em>the Planet</em></h1>
+    <div class="modal-bylines">
+      <span class="modal-byline-item"><strong>Mohammad Mahmudullah Riyad</strong></span>
+      <span class="modal-byline-item">Cricketer &amp; Former Captain, Bangladesh National Cricket Team</span>
+    </div>
+    <p class="modal-intro">Mahmudullah Riyad, one of Bangladesh's most respected cricketers, shares his deep reflections on the importance of nature and the urgent need to protect our environment for future generations. In this interview, he speaks not as an athlete, but as a citizen of the planet — emphasising why clean air, natural ecosystems, and ecological balance are essential to human well-being, mental strength, and national resilience.</p>
+    <ul class="modal-qa">
+      <li class="modal-qa-item">
+        <p class="modal-q">You've played all over the world. Is there a place you've visited for cricket that truly stunned you with its natural beauty?</p>
+        <p class="modal-a">There are many places I have visited. Two places, in particular, really stood out to me. The first is Queenstown in New Zealand — it was simply amazing. The deep blue water, the environment, and the overall atmosphere were stunning.<br><br>The second place is St. Kitts. Alhamdulillah, I had a good record on that ground, which made it even more special for me. Beyond cricket, the beach and the white sand, along with the mountains, made it truly remarkable. There's also a unique spot on the island that is naturally connected at the top, where the Caribbean Sea meets the Atlantic Ocean. On one side, the waves of the Atlantic are quite rough, while the Caribbean Sea is much calmer.<br><br>These are the two places I really admire. The environment was exceptionally clean, and the people there were very kind and maintained their surroundings so well. Credit goes to them for that as well.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">Have you personally experienced how the climate is impacting the game?</p>
+        <p class="modal-a">There was a game in 2019. We were playing in Delhi against India, in the first T20 of the series. The day before the game, when we came to the ground for practice, all of us suddenly noticed a lot of pollution. There had been some news about pollution in the city before, but that particular day, it was really severe — the air was very polluted, and we could see the fog around the stadium. We actually felt uncomfortable breathing.<br><br>We used our face masks and went ahead with practice. The next day, however, the situation was better. So, it's really important to play in a good environment, with minimal sound or air pollution.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">As a father and a sports icon, how important is it for you to raise awareness about protecting nature for future generations?</p>
+        <p class="modal-a">I feel, as a father, it is really important to teach awareness to your children so that they can value it from the beginning. As they grow up, they should understand the importance of protecting the environment. At the same time, we must also be mindful not to do anything that pollutes our surroundings, because it would be harmful for future generations as well.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">If you could lend your voice to a climate or nature campaign, what kind of message would you like to share with your fans?</p>
+        <p class="modal-a">If I could give a message to everyone, it would be to take personal responsibility for our environment. Keeping our surroundings clean by not throwing waste anywhere is one of the simplest yet most powerful actions we can take. Every piece of litter we prevent helps protect our rivers, wildlife, and soil. Just as important is caring for the air we all breathe. We must be mindful of actions that cause air pollution — whether it's burning waste, using excessive fossil fuels, or being careless about emissions. Clean air is essential for our health and the well-being of future generations. By being responsible citizens and making small, thoughtful choices every day, we can contribute to a cleaner, healthier, and more liveable planet for everyone.</p>
+      </li>
+      <li class="modal-qa-item">
+        <p class="modal-q">Off the field, do you enjoy nature — gardening, hiking, or traveling to scenic places?</p>
+        <p class="modal-a">I really enjoy traveling. I have traveled a lot, and it's something I truly like. I also enjoy gardening. I think it's really important, especially when you are busy with personal work, to take the opportunity to go outside and get close to nature. It really refreshes you, and when you return to your work, you feel motivated and re-energised. That connection with nature is very important.</p>
+      </li>
+    </ul>
+    <div class="modal-tags">
+      <span class="modal-tag">Climate Awareness</span><span class="modal-tag">Human-Nature Connection</span>
+      <span class="modal-tag">#NatureAndFuture</span><span class="modal-tag">#ProtectOurPlanet</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════════ -->
+<script>
+/* ── MODALS ── */
+function openModal(id) {
+  var el = document.getElementById('modal-' + id);
+  if (!el) return;
+  el.classList.add('active');
+  el.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  var el = document.getElementById('modal-' + id);
+  if (!el) return;
+  el.classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeModalOnOverlay(e, id) {
+  if (e.target === e.currentTarget) closeModal(id);
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.active').forEach(function(m) {
+      m.classList.remove('active');
+    });
+    document.body.style.overflow = '';
+  }
+});
+
+/* ── NAV SCROLL ── */
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  nav.classList[window.scrollY > 80 ? 'add' : 'remove']('scrolled');
+}, { passive: true });
+
+/* ── REVEAL ── */
+var revEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.09, rootMargin: '0px 0px -30px 0px' });
+  revEls.forEach(function(el) { io.observe(el); });
+} else {
+  revEls.forEach(function(el) { el.classList.add('visible'); });
+}
+</script>
+</body>
+</html>
